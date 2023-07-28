@@ -3,23 +3,23 @@ const bcrypt = require('bcrypt');
 const movieSchema = require('./Movie');
 
 const userSchema = new Schema({
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    savedBooks: [bookSchema],
+  username: {
+    type: String,
+    required: true,
+    unique: true,
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  savedMovies: [movieSchema],
+},
   {
     toJSON: {
       virtuals: true,
@@ -40,8 +40,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
+userSchema.virtual('movieCount').get(function () {
+  return this.savedMovies.length;
 });
 
 const User = model('User', userSchema);
