@@ -73,9 +73,9 @@ const SearchMovies = () => {
 
     return (
         <>
-            <Jumbotron fluid className='text-light bg-dark'>
+            <Jumbotron fluid className='text-light bg-dark' style={{ background: 'black' }}>
                 <Container>
-                    <h1>Search for Movies!</h1>
+                    <h1 style={{ color: '#8B0000', textShadow: '2px 2px black' }}>Search for Movies!</h1>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Row>
                             <Col xs={12} md={8}>
@@ -89,7 +89,7 @@ const SearchMovies = () => {
                                 />
                             </Col>
                             <Col xs={12} md={4}>
-                                <Button type='submit' variant='success' size='lg'>
+                                <Button type='submit' variant='danger' size='lg'>
                                     Submit Search
                                 </Button>
                             </Col>
