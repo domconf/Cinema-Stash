@@ -18,7 +18,7 @@ const userSchema = new Schema({
       type: String,
       required: true,
     },
-    savedBooks: [bookSchema],
+    savedMovies: [movieSchema],
   },
   {
     toJSON: {
@@ -40,8 +40,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
+userSchema.virtual('movieCount').get(function () {
+  return this.savedMovies.length;
 });
 
 const User = model('User', userSchema);
