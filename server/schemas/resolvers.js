@@ -40,7 +40,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { savedMovies: newMovie }},
+          { $push: { savedMovies: newMovie } },
           { new: true }
         );
         return updatedUser;
@@ -51,7 +51,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedMovies: { movieId }}},
+          { $pull: { savedMovies: { movieId } } },
           { new: true }
         );
         return updatedUser;
