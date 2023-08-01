@@ -13,8 +13,9 @@ const SearchMovies = () => {
     const [saveMovie, { error }] = useMutation(SAVE_MOVIE);
 
     useEffect(() => {
-        return () => saveMovieIds(savedMovieIds);
-    });
+        saveMovieIds(savedMovieIds);
+    }, [savedMovieIds]);
+
 
     const apiKey = '50dee6b6';
 
@@ -114,15 +115,24 @@ const SearchMovies = () => {
                                 <Card.Body>
                                     <Card.Title>{movie.title}</Card.Title>
                                     <p className='small'>Year: {movie.year}</p>
+                                    {/* Add other relevant movie data here */}
                                     {Auth.loggedIn() && (
                                         <Button
                                             disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)}
-                                            className='btn-block btn-info'
-                                            onClick={() => handleSaveMovie(movie.movieId)}>
+                                            className="btn-block"
+                                            style={{
+                                                backgroundColor: savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId) ? '' : 'red',
+                                                color: 'white',
+                                                border: '1px solid black', // Adding black border
+                                            }}
+                                            onClick={() => handleSaveMovie(movie.movieId)}
+                                        >
                                             {savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)
                                                 ? 'This movie has already been saved!'
                                                 : 'Save this Movie!'}
                                         </Button>
+
+
                                     )}
                                 </Card.Body>
                             </Card>
