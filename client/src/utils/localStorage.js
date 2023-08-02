@@ -23,7 +23,7 @@ export const removeMovieId = (movieId) => {
         return false;
     }
 
-    const updatedSavedMovieIds = savedMovieIds?.filter((savedMovieId) => savedMovieId !== movieId);
+    const updatedSavedMovieIds = savedMovieIds.filter((savedMovieId) => savedMovieId !== movieId);
     localStorage.setItem('saved_movies', JSON.stringify(updatedSavedMovieIds));
 
     return true;

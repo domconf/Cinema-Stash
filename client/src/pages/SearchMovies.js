@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+import { Jumbotron, Container, Col, Row, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/client';
@@ -15,7 +15,6 @@ const SearchMovies = () => {
     useEffect(() => {
         saveMovieIds(savedMovieIds);
     }, [savedMovieIds]);
-
 
     const apiKey = '50dee6b6';
 
@@ -74,71 +73,75 @@ const SearchMovies = () => {
 
     return (
         <>
-            <Jumbotron fluid className='text-light bg-dark' style={{ background: 'black' }}>
-                <Container>
-                    <h1 style={{ color: '#8B0000', textShadow: '2px 2px black' }}>Search for Movies!</h1>
-                    <Form onSubmit={handleFormSubmit}>
-                        <Form.Row>
-                            <Col xs={12} md={8}>
-                                <Form.Control
-                                    name='searchInput'
-                                    value={searchInput}
-                                    onChange={(e) => setSearchInput(e.target.value)}
-                                    type='text'
-                                    size='lg'
-                                    placeholder='Search for a movie'
-                                />
-                            </Col>
-                            <Col xs={12} md={4}>
-                                <Button type='submit' variant='danger' size='lg'>
-                                    Submit Search
-                                </Button>
-                            </Col>
-                        </Form.Row>
-                    </Form>
-                </Container>
-            </Jumbotron>
-
             <Container>
-                <h2>
-                    {searchedMovies.length
-                        ? `Viewing ${searchedMovies.length} results:`
-                        : 'Search for a movie to begin'}
-                </h2>
-                <CardColumns>
-                    {searchedMovies.map((movie) => {
-                        return (
-                            <Card key={movie.movieId} border='dark'>
-                                {movie.poster ? (
-                                    <Card.Img src={movie.poster} alt={`The poster for ${movie.title}`} variant='top' />
-                                ) : null}
-                                <Card.Body>
-                                    <Card.Title>{movie.title}</Card.Title>
-                                    <p className='small'>Year: {movie.year}</p>
-                                    {/* Add other relevant movie data here */}
-                                    {Auth.loggedIn() && (
-                                        <Button
-                                            disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)}
-                                            className="btn-block"
-                                            style={{
-                                                backgroundColor: savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId) ? '' : 'red',
-                                                color: 'white',
-                                                border: '1px solid black', // Adding black border
-                                            }}
-                                            onClick={() => handleSaveMovie(movie.movieId)}
-                                        >
-                                            {savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)
-                                                ? 'This movie has already been saved!'
-                                                : 'Save this Movie!'}
-                                        </Button>
+                <Row>
+                    {/* Search Bar on the Left */}
+                    <Col xs={12} md={4} className="bg-dark" style={{ minHeight: '100vh' }}>
+                        <Jumbotron fluid className="text-light bg-dark" style={{ background: 'black' }}>
+                            <Container>
+                                <h1 style={{ color: '#8B0000', textShadow: '2px 2px black' }}>Search for Movies Here!</h1>
+                                <Form onSubmit={handleFormSubmit}>
+                                    <Form.Row>
+                                        <Col xs={12}>
+                                            <Form.Control
+                                                name="searchInput"
+                                                value={searchInput}
+                                                onChange={(e) => setSearchInput(e.target.value)}
+                                                type="text"
+                                                size="lg"
+                                                placeholder="Enter a movie"
+                                            />
+                                        </Col>
+                                        <Col xs={12}>
+                                            <Button type="submit" variant="danger" size="lg">
+                                                Search
+                                            </Button>
+                                        </Col>
+                                    </Form.Row>
+                                </Form>
+                            </Container>
+                        </Jumbotron>
+                    </Col>
 
-
-                                    )}
-                                </Card.Body>
-                            </Card>
-                        );
-                    })}
-                </CardColumns>
+                    {/* Results on the Right */}
+                    <Col xs={12} md={8}>
+                        <h2>
+                            {searchedMovies.length
+                                ? `Viewing ${searchedMovies.length} results:`
+                                : 'Search for a movie to begin...'}
+                        </h2>
+                        <CardColumns>
+                            {searchedMovies.map((movie) => (
+                                <Card key={movie.movieId} border="dark">
+                                    {movie.poster ? (
+                                        <Card.Img src={movie.poster} alt={`The poster for ${movie.title}`} variant="top" />
+                                    ) : null}
+                                    <Card.Body>
+                                        <Card.Title>{movie.title}</Card.Title>
+                                        <p className="small">Year: {movie.year}</p>
+                                        {/* Add other relevant movie data here */}
+                                        {Auth.loggedIn() && (
+                                            <Button
+                                                disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)}
+                                                className="btn-block"
+                                                style={{
+                                                    backgroundColor: savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId) ? '' : 'red',
+                                                    color: 'white',
+                                                    border: '1px solid black',
+                                                }}
+                                                onClick={() => handleSaveMovie(movie.movieId)}
+                                            >
+                                                {savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)
+                                                    ? 'Movie has been saved!'
+                                                    : 'Save this Movie!'}
+                                            </Button>
+                                        )}
+                                    </Card.Body>
+                                </Card>
+                            ))}
+                        </CardColumns>
+                    </Col>
+                </Row>
             </Container>
         </>
     );
