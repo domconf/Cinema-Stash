@@ -93,7 +93,7 @@ const SearchMovies = () => {
                                             />
                                         </Col>
                                         <Col xs={12}>
-                                            <Button type="submit" variant="danger" size="lg">
+                                            <Button type="submit" variant="danger" size="lg" style={{ marginTop: '10px' }}>
                                                 Search
                                             </Button>
                                         </Col>
