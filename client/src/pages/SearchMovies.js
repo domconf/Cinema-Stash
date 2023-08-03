@@ -125,9 +125,9 @@ const SearchMovies = () => {
                                                 disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)}
                                                 className="btn-block"
                                                 style={{
-                                                    backgroundColor: savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId) ? '' : 'red',
-                                                    color: 'white',
-                                                    border: '1px solid black',
+                                                    backgroundColor: savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId) ? 'black' : 'red',
+                                                    color: savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId) ? 'red' : 'white',
+                                                    border: '1px solid red',
                                                 }}
                                                 onClick={() => handleSaveMovie(movie.movieId)}
                                             >

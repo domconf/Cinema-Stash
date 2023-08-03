@@ -2,7 +2,9 @@ import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import Auth from '../utils/auth';
 
-const SavedMovies = ({ savedMovies, handleDeleteMovie }) => {
+const SavedMovies = (props) => {
+    const savedMovies = undefined
+    const handleDeleteMovie = undefined
     if (!savedMovies || savedMovies.length === 0) {
         return (
             <>
