@@ -13,6 +13,8 @@ Cinema Stash is an application made for movie lovers by movie lovers! Simply sig
 * [Contributors](#contributors)
 
 ## Screenshots
+![cs-homepage](https://github.com/domconf/Cinema-Stash/assets/123976458/9a230260-8ebc-4bbf-985b-117e188f12fd)
+![cs-search](https://github.com/domconf/Cinema-Stash/assets/123976458/395dcc93-d6e9-4c26-a84b-1c6c20157fe5)
 
 ## Installation
 * npm i to install all dependencies
