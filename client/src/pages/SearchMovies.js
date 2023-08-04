@@ -75,7 +75,6 @@ const SearchMovies = () => {
         <>
             <Container>
                 <Row>
-                    {/* Search Bar on the Left */}
                     <Col xs={12} md={4} className="bg-dark" style={{ minHeight: '100vh' }}>
                         <Jumbotron fluid className="text-light bg-dark" style={{ background: 'black' }}>
                             <Container>
@@ -102,8 +101,6 @@ const SearchMovies = () => {
                             </Container>
                         </Jumbotron>
                     </Col>
-
-                    {/* Results on the Right */}
                     <Col xs={12} md={8}>
                         <h2>
                             {searchedMovies.length
@@ -119,7 +116,6 @@ const SearchMovies = () => {
                                     <Card.Body>
                                         <Card.Title>{movie.title}</Card.Title>
                                         <p className="small">Year: {movie.year}</p>
-                                        {/* Add other relevant movie data here */}
                                         {Auth.loggedIn() && (
                                             <Button
                                                 disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movie.movieId)}
