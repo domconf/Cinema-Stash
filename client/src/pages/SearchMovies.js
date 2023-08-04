@@ -26,7 +26,7 @@ const SearchMovies = () => {
         }
 
         try {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=movie`);
+            const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=movie`);
 
             if (!response.ok) {
                 throw new Error('Something went wrong!');
