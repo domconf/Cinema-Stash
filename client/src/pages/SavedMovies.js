@@ -50,11 +50,8 @@ const SavedMovies = () => {
                     {userData.savedMovies.map((movie) => {
                         return (
                             <Card key={movie.movieId} border='dark'>
-                                {movie.poster ? (
-                                    <Card.Img src={movie.poster} alt={`The cover for ${movie.title}`} variant='top' />
-                                ) : (
-                                    <div>No Poster Available</div>
-                                )}
+                                {movie.poster ? 
+                                    <Card.Img src={movie.poster} alt={`The cover for ${movie.title}`} variant='top' /> : null}
                                 <Card.Body>
                                     <Card.Title>{movie.title}</Card.Title>
                                     <p className='small'>Year: {movie.year}</p>
