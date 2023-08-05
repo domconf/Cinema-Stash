@@ -19,10 +19,10 @@ const movieSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
+  poster: {
     type: String,
   },
-  link: {
+  year: {
     type: String,
   },
 });
