@@ -75,10 +75,10 @@ const SearchMovies = () => {
         <>
             <Container>
                 <Row>
-                    <Col xs={12} md={4} className="bg-dark" style={{ minHeight: '100vh' }}>
-                        <Jumbotron fluid className="text-light bg-dark" style={{ background: 'black' }}>
+                    <Col xs={12} md={4} className="custom-bg-dark" style={{ minHeight: '100vh', backgroundColor: 'slategray' }}>
+                        <Jumbotron fluid className="text-light custom-bg-dark" style={{ backgroundColor: 'crimson' }}>
                             <Container>
-                                <h1 style={{ color: '#8B0000', textShadow: '2px 2px black' }}>Search for Movies Here!</h1>
+                                <h1 style={{ color: 'black', textShadow: '2px 2px slategray' }}>Search for Movies Here!</h1>
                                 <Form onSubmit={handleFormSubmit}>
                                     <Form.Row>
                                         <Col xs={12}>
@@ -92,7 +92,7 @@ const SearchMovies = () => {
                                             />
                                         </Col>
                                         <Col xs={12}>
-                                            <Button type="submit" variant="danger" size="lg" style={{ marginTop: '10px' }}>
+                                            <Button type="submit" variant="danger" size="lg" style={{ border: 'solid', marginTop: '10px' }}>
                                                 Search
                                             </Button>
                                         </Col>

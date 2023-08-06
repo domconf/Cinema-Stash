@@ -1,30 +1,58 @@
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: lightgray;
+    background-color: slategray;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+
+.custom-bg-dark {
+    background-color: slategray;
 }
+  
+button.btn.btn-danger.btn-lg {
+    background-color: crimson;
+}
+
+.text-light {
+    color: black;
+    border: solid;
+    border-color: black;
+}
+
+div.bg-dark.col-md-4.col-12 {
+    background-color: crimson;
+    border: solid;
+    border-color: black;
+    }
 
 .small {
     font-weight: 300;
     font-style: italic;
 }
 
-h1 {
-    font-size: 25px;
+button.navbar-toggler.collapsed {
+    background-color: slategray;
+    border: solid;
+    color: black;
+}
+
+div.container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light {
+    background-color: crimson;
+    margin-bottom: 10px;
+    border: solid;
+    border-color: black;
 }
 
 input[name="searchInput"] {
     font-size: 16px;
 }
 
-.navbar-brand {
+a.navbar-brand {
     font-size: 36px;
+    color: slategray;
 }

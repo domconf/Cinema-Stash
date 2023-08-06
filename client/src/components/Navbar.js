@@ -12,7 +12,7 @@ const AppNavbar = () => {
 
     return (
         <>
-            <Navbar style={{ backgroundColor: '#8B0000', fontFamily: 'Impact', color: 'white' }} expand='lg'>
+            <Navbar style={{ fontFamily: 'Impact', color: 'white', backgroundColor: 'crimson'}} expand='lg'>
                 <Container fluid>
                     <Navbar.Brand as={Link} to='/'>
                         Cinema Stash
